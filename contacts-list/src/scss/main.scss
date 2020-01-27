@@ -1,0 +1,103 @@
+@import './var';
+@import '../components/ViewSelectedContact/viewSelected';
+@import '../components/Contact/contact';
+@import '../components/ContactsList/contactsList';
+@import '../components/SelectedContact/selectedContact';
+@import '../components/CreateContact/createContact';
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  background: $grey;
+  color: $black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  background: none;
+}
+
+.appHeader {
+  height: 10vh;
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+  font-size: var(--titleSize);
+  position: relative;
+  font-weight: map-get($fontWeights, 'medium');
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: $black;
+    opacity: 0.2;
+  }
+}
+
+.appWrapper {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+section {
+  height: 100%;
+  width: 50vw;
+  padding: 2rem 0;
+}
+
+.ContactsSection {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: $black;
+    opacity: 0.2;
+  }
+}
+
+.EditContactSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $black;
+  border-radius: 20px;
+}

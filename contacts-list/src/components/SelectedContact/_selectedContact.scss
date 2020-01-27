@@ -1,0 +1,119 @@
+.selectedContact {
+  height: 80%;
+  width: 80%;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__closeBtn {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    background: none;
+    height: 50px;
+    width: 50px;
+    font-size: var(--titleSize);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s;
+    border-radius: 50%;
+
+    &:hover {
+      background: rgb(209, 209, 209);
+      color: $lRed;
+    }
+  }
+
+  &__row {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+
+    & > * + * {
+      margin-top: 20px;
+    }
+
+    input[type='text'] {
+      background: none;
+      border: none;
+      border-bottom: 1px solid $black;
+      font-size: var(--titleSize);
+      outline: none;
+      padding: 3px;
+
+      &:disabled {
+        border-bottom: none;
+      }
+    }
+
+    label {
+      font-size: var(--titleSize);
+      color: #333;
+      opacity: 0.8;
+    }
+
+    fieldset {
+      border: none;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__name,
+  &__surname {
+    font-size: var(--titleSize) !important;
+  }
+
+  .actionBtns {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    [class^='actionBtns__btn'] {
+      background: none;
+      border: none;
+      outline: none;
+      font-size: var(--textSize);
+      cursor: pointer;
+      border-bottom: 2px solid $black;
+      height: 2rem;
+      width: 7rem;
+      transition: all 0.3s ease;
+    }
+
+    [class$='--edit'] {
+      &:hover {
+        background: $black;
+        color: $grey;
+      }
+    }
+
+    [class$='--save'] {
+      &:hover {
+        color: $grey;
+        border-color: green;
+        background: green;
+      }
+    }
+
+    [class$='--delete'] {
+      color: $lRed;
+
+      &:hover {
+        background: $lRed;
+        color: $grey;
+        border-color: $lRed;
+      }
+    }
+  }
+}
