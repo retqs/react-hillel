@@ -1,0 +1,59 @@
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.todo::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #999;
+  opacity: 0.6;
+}
+
+.todo:not(:first-child) {
+  margin-top: 50px;
+}
+
+.todo__info {
+  display: flex;
+  align-items: center;
+}
+
+.done {
+  color: rgb(167, 243, 53);
+}
+
+.todo__icons {
+  display: flex;
+  padding: 0 20px;
+}
+
+.todo__icons--edit,
+.todo__icons--delete,
+.todo__icons--isDone {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.todo__icons--edit:hover {
+  color: #999;
+}
+
+.todo__icons--delete:hover {
+  color: #e7476a;
+}
+
+.todo__icons--isDone:hover {
+  color: rgb(167, 243, 53);
+}
+
+.todo__icons--edit {
+  margin: 0 20px;
+}
