@@ -10,26 +10,17 @@ const initialItem = {
   left: 200
 };
 
-function App() {
-  const setLocalStorageItem = item => localStorage.setItem('stickers', JSON.stringify(item));
-  const getLocalStorageItem = () => JSON.parse(localStorage.getItem('stickers'));
+const setLocalStorageItem = item => localStorage.setItem('stickers', JSON.stringify(item));
+const getLocalStorageItem = () => JSON.parse(localStorage.getItem('stickers'));
 
+function App() {
   const [items, setItems] = useState(getLocalStorageItem() || []);
 
   useEffect(() => {
     setLocalStorageItem(items);
   }, [items]);
 
-  useEffect(() => {
-    const values = getLocalStorageItem();
-    setItems(
-      values.map(value => {
-        return { ...value };
-      })
-    );
-  }, []);
-
-  const AddNewItem = () => {
+  const addNewItem = () => {
     setItems([...items, { ...initialItem, id: Math.random() * 100 }]);
   };
 
@@ -76,7 +67,7 @@ function App() {
       <Global></Global>
       <AppContainer>
         <Nav>
-          <Button bg='#553772' clr='#f2f2f2' onClick={() => AddNewItem()}>
+          <Button bg='#553772' clr='#f2f2f2' onClick={() => addNewItem()}>
             Add
           </Button>
           {items.length > 0 ? (

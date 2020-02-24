@@ -1,0 +1,40 @@
+.container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.newTodoBtn {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  background: none;
+  outline: none;
+  border: none;
+  height: 2.5rem;
+  font-size: 1.125rem;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+  text-transform: capitalize;
+}
+
+.newTodoBtn:hover {
+  color: #e7476a;
+}
+
+.newTodoBtn:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: #333;
+}
+
+.todoList {
+  width: 60vw;
+  margin: auto;
+  height: 100%;
+  list-style: none;
+}

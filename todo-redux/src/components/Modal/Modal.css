@@ -1,0 +1,63 @@
+.modal {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  top: 0;
+  left: 0;
+
+  visibility: hidden;
+}
+
+.modal.collapse {
+  visibility: visible;
+}
+
+.modal__overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.form {
+  height: 300px;
+  width: 500px;
+  background: #fff;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+[type='text'] {
+  background: none;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #333;
+  height: 2rem;
+  font-size: 1.5rem;
+}
+
+.modal__closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.form__submit {
+  background: #121212;
+  color: #f2f2f2;
+  border: none;
+  outline: none;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
