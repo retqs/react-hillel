@@ -12,6 +12,7 @@ const AddStudent = ({ groups, addStudent }) => {
 
   const handleChange = e => {
     const target = e.target;
+
     setInputVal({
       ...inputVal,
       [target.name]: target.value

@@ -1,15 +1,14 @@
 import { data } from '../../data';
 import * as types from '../actions/actionTypes';
 
-const groups = JSON.parse(JSON.stringify(data));
-
-const intialState = {
+const initialState = {
   groups: data,
   students: getAllStudents(data),
   search: ''
 };
 
 function getAllStudents(arr) {
+  console.log('arr', arr);
   const students = [];
   arr.map(group =>
     group.students.map(student => {
@@ -20,7 +19,7 @@ function getAllStudents(arr) {
   return students;
 }
 
-export default function(state = intialState, { type, payload }) {
+export default function(state = initialState, { type, payload }) {
   switch (type) {
     case types.EDIT_STUDENT:
       return {

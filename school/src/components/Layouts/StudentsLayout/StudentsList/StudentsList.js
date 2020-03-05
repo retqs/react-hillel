@@ -6,7 +6,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 
 const StudentsList = ({ students, searchStudent, search }) => {
   const match = useRouteMatch();
-  console.log(students);
+
   return (
     <div className='searchConainer'>
       <BackBtn></BackBtn>
