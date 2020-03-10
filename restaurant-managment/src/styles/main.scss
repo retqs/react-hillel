@@ -1,0 +1,24 @@
+@import './var';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+@import '../components/Layouts/Menu/menu';
+@import '../components/Layouts/Tables/tables';
+@import '../components/Layouts/Waiters/waiters';
+@import '../components/Layouts/Spinner/spinner';
+@import '../components/Layouts/Tables/TablesList/tbList';
+@import '../components/Layouts/Tables/Table/table';
+@import '../components/Layouts/Waiters/WaitersList/waiterList';
+@import '../components/Layouts/Waiters/Waiter/waiter';
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background: $white;
+}

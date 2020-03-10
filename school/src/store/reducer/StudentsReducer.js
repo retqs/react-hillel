@@ -8,7 +8,6 @@ const initialState = {
 };
 
 function getAllStudents(arr) {
-  console.log('arr', arr);
   const students = [];
   arr.map(group =>
     group.students.map(student => {

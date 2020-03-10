@@ -3,8 +3,14 @@ import StudentsList from './StudentsList';
 import { addStudent, searchStudent } from '../../../../store/actions';
 
 const mapStateToProps = state => {
+  const regexQuery = new RegExp(state.students.search, 'gi');
+
+  console.log(state.groups.groupsData);
+
   return {
-    students: state.students.students.filter(prevState => prevState.name.includes(state.students.search)),
+    students: state.students.search
+      ? state.students.students.filter(prevState => prevState.name.match(regexQuery))
+      : state.students.students,
     search: state.students.search
   };
 };

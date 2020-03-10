@@ -1,0 +1,11 @@
+$white: #fff;
+$black: #181c29;
+$pink: #d12b63;
+$grey: #9ea8b2;
+
+@mixin flexItem($algn, $jst, $drct) {
+  display: flex;
+  align-items: $algn;
+  justify-content: $jst;
+  flex-direction: $drct;
+}
