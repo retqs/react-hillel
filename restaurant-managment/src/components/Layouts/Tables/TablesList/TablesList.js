@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import Loading from '../../Spinner/Spinner';
 
-const TablesList = ({ isLoading, fetchData, tables, deleteTable, addTable }) => {
+const TablesList = ({ isLoading, fetchTables, tables, deleteTable, addTable, searchTable }) => {
   const { url } = useRouteMatch();
 
   useEffect(() => {
-    fetchData('/tables');
+    fetchTables();
   }, []);
 
   return isLoading ? (
@@ -14,9 +14,12 @@ const TablesList = ({ isLoading, fetchData, tables, deleteTable, addTable }) => 
   ) : (
     <div className='listWrapper'>
       <h2>Available Tables</h2>
-      <span className='addNew'>
-        <Link to={`${url}/new`}>new</Link>
-      </span>
+      <div className='addNew' onClick={() => addTable()}>
+        <span>new</span>
+      </div>
+      <nav className='nav'>
+        <input type='text' onChange={e => searchTable(e.target.value)} />
+      </nav>
       <ul className='list'>
         {tables.map(table => {
           return (

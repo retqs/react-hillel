@@ -11,11 +11,11 @@ function Routes() {
     <>
       <Menu></Menu>
       <Switch>
-        <Route exact path='/tables' component={Tables}></Route>
+        <Route path='/tables' component={Tables}></Route>
         <Route path='/waiters' component={Waiters}></Route>
-        {/* <Route path='*'>
+        <Route path='*'>
           <Redirect to='/tables'></Redirect>
-        </Route> */}
+        </Route>
       </Switch>
     </>
   );

@@ -2,12 +2,13 @@ import * as types from '../actions/actionTypes';
 
 const initialState = {
   isLoading: true,
-  tables: []
+  tables: [],
+  search: ''
 };
 
 export default function(state = initialState, { type, payload }) {
   switch (type) {
-    case types.FETCH_DATA:
+    case types.FETCH_DATA_TABLES:
       return {
         ...state,
         isLoading: false,
@@ -23,7 +24,16 @@ export default function(state = initialState, { type, payload }) {
         ...state,
         tables: state.tables.filter(item => item.id !== payload)
       };
-
+    case types.EDIT_TABLE:
+      return {
+        ...state,
+        tables: state.tables.map(item => (item.id === payload.id ? payload : item))
+      };
+    case types.SEARCH:
+      return {
+        ...state,
+        search: payload
+      };
     default:
       return state;
   }

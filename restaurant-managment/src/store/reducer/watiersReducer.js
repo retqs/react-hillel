@@ -1,15 +1,9 @@
 import * as types from '../actions/actionTypes';
 
-const newWaiter = {
-  id: Math.random() * 33,
-  name: 'Give me a name',
-  salary: 'Also I need salary',
-  startDate: Date.now()
-};
-
 const initialState = {
   isLoading: true,
-  waiters: []
+  waiters: [],
+  search: ''
 };
 
 export default function(state = initialState, { type, payload }) {
@@ -17,18 +11,28 @@ export default function(state = initialState, { type, payload }) {
     case types.ADD_WAITER:
       return {
         ...state,
-        waiters: [...state.waiters, newWaiter]
+        waiters: [...state.waiters, { ...payload, startDate: Date.now() }]
       };
     case types.DELETE_WAITER:
       return {
         ...state,
         waiters: state.waiters.filter(item => item.id !== payload)
       };
-    case types.FETCH_DATA:
+    case types.FETCH_DATA_WAITERS:
       return {
         ...state,
         isLoading: false,
         waiters: payload
+      };
+    case types.EDIT_WAITER:
+      return {
+        ...state,
+        waiters: state.waiters.map(item => (item.id === payload.id ? payload : item))
+      };
+    case types.SEARCH:
+      return {
+        ...state,
+        search: payload
       };
     default:
       return state;

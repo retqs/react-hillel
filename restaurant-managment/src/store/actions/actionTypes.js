@@ -1,5 +1,7 @@
-export const FETCH_DATA = 'data/FETCH_DATA';
+export const FETCH_DATA_TABLES = 'data/FETCH_DATA_TABLES';
+export const FETCH_DATA_WAITERS = 'data/FETCH_DATA_WAITERS';
 export const SET_LOADING = 'data/SET_LOADING';
+export const SEARCH = 'data/SEARCH';
 
 export const ADD_TABLE = 'tables/ADD_TABLE';
 export const EDIT_TABLE = 'tables/EDIT_TABLE';

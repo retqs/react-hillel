@@ -1,32 +1,50 @@
 import * as types from './actionTypes';
-import { tableAPI, waitersAPI, api } from '../../services/api';
+import { tableAPI, waitersAPI } from '../../services/api';
 
 export const setLoading = () => ({
   type: types.SET_LOADING
 });
 
-export const fetchData = resource => async dispatch => {
-  const data = await api.get(resource);
+export const fetchTables = () => async dispatch => {
+  const data = await tableAPI.get('');
 
   dispatch(setLoading());
 
   dispatch({
-    type: types.FETCH_DATA,
+    type: types.FETCH_DATA_TABLES,
     payload: data.data
   });
 };
 
-export const addTable = table => dispatch => {
-  tableAPI.post('', table);
+export const fetchWaiters = () => async dispatch => {
+  const data = await waitersAPI.get('');
+
+  dispatch(setLoading());
 
   dispatch({
-    type: types.ADD_TABLE,
-    payload: table
+    type: types.FETCH_DATA_WAITERS,
+    payload: data.data
   });
 };
 
+export const addTable = () => {
+  const newTable = {
+    id: Math.random() * 33,
+    name: 'Edit Name',
+    description: 'Add Description',
+    sits: 2
+  };
+
+  tableAPI.post('', newTable);
+
+  return {
+    type: types.ADD_TABLE,
+    payload: newTable
+  };
+};
+
 export const editTable = table => dispatch => {
-  api.put(table.id, table);
+  tableAPI.put(table.id, table);
 
   dispatch({
     type: types.EDIT_TABLE,
@@ -43,16 +61,45 @@ export const deleteTable = id => dispatch => {
   });
 };
 
-export const addWaiter = () => ({
-  type: types.ADD_WAITER
+export const addWaiter = () => {
+  const newWaiter = {
+    id: Math.random() * 33,
+    name: 'New Name',
+    salary: 0
+  };
+
+  waitersAPI.post('', newWaiter);
+
+  return {
+    type: types.ADD_WAITER,
+    payload: newWaiter
+  };
+};
+
+export const editWaiter = waiter => dispatch => {
+  waitersAPI.put(waiter.id, waiter);
+
+  dispatch({
+    type: types.EDIT_WAITER,
+    payload: waiter
+  });
+};
+
+export const deleteWaiter = id => dispatch => {
+  waitersAPI.delete(id);
+
+  dispatch({
+    type: types.DELETE_WAITER,
+    payload: id
+  });
+};
+
+export const searchTable = table => ({
+  type: types.SEARCH,
+  payload: table
 });
 
-export const editWaiter = waiter => ({
-  type: types.EDIT_WAITER,
+export const searchWaiter = waiter => ({
+  type: types.SEARCH,
   payload: waiter
-});
-
-export const deleteWaiter = id => ({
-  type: types.DELETE_WAITER,
-  payload: id
 });

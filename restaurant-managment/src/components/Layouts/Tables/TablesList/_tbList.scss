@@ -5,24 +5,23 @@
   @include flexItem(center, flex-start, column);
 
   .addNew {
-    position: absolute;
-    right: 7rem;
+    position: fixed;
+    right: 2rem;
     top: 2rem;
-
+    z-index: 2;
     height: 2rem;
     width: 120px;
     background: $pink;
 
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+
     border-radius: 10px;
     text-transform: capitalize;
 
-    a {
-      text-decoration: none;
+    span {
       color: $white;
-      height: 100%;
-      width: 100%;
-      display: grid;
-      place-items: center;
     }
   }
 }
