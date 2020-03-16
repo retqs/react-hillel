@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import List from './WaitersList';
-import { deleteWaiter, fetchWaiters, addWaiter, editWaiter, searchWaiter } from '../../../../store/actions';
+import { deleteWaiter, fetchData, addWaiter, editWaiter, searchWaiter } from '../../../../store/actions';
 import { createSelector } from 'reselect';
 
 const waitersSelector = state => state.waiters.waiters;
@@ -23,7 +23,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   deleteWaiter,
-  fetchWaiters,
+  fetchData,
   addWaiter,
   editWaiter,
   searchWaiter

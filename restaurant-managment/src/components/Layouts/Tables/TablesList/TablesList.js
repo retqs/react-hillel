@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import Loading from '../../Spinner/Spinner';
 
-const TablesList = ({ isLoading, fetchTables, tables, deleteTable, addTable, searchTable }) => {
+const TablesList = ({ isLoading, fetchData, tables, deleteTable, addTable, searchTable }) => {
   const { url } = useRouteMatch();
 
   useEffect(() => {
-    fetchTables();
+    fetchData('tables/');
   }, []);
 
   return isLoading ? (

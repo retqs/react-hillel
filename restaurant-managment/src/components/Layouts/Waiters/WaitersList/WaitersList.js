@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Loading from '../../Spinner/Spinner';
 
-const WaitersList = ({ isLoading, fetchWaiters, waiters, editWaiter, deleteWaiter, addWaiter, search, searchWaiter }) => {
+const WaitersList = ({ isLoading, fetchData, waiters, editWaiter, deleteWaiter, addWaiter, search, searchWaiter }) => {
   useEffect(() => {
-    fetchWaiters();
+    fetchData('waiters/');
   }, []);
 
   const handleChange = (e, waiter) => {

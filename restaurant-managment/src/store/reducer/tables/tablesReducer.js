@@ -1,4 +1,4 @@
-import * as types from '../actions/actionTypes';
+import * as types from '../../actions/actionTypes';
 
 const initialState = {
   isLoading: true,
@@ -8,7 +8,7 @@ const initialState = {
 
 export default function(state = initialState, { type, payload }) {
   switch (type) {
-    case types.FETCH_DATA_TABLES:
+    case types.FETCH_DATA:
       return {
         ...state,
         isLoading: false,

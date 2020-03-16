@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import List from './TablesList';
-import { deleteTable, addTable, fetchTables, searchTable } from '../../../../store/actions';
+import { deleteTable, addTable, fetchData, searchTable } from '../../../../store/actions';
 import { createSelector } from 'reselect';
 
 const tableSelectror = state => state.tables.tables;
@@ -15,7 +15,6 @@ const getFilteredTables = createSelector([tableSelectror, searchSelector], (tabl
 });
 
 const mapStateToProps = state => {
-  console.log(getFilteredTables(state).tables);
   return {
     tables: getFilteredTables(state).tables,
     isLoading: state.tables.isLoading
@@ -25,7 +24,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   deleteTable,
   addTable,
-  fetchTables,
+  fetchData,
   searchTable
 };
 

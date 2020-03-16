@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Tables from '../Layouts/Tables/Tables';
 import Waiters from '../Layouts/Waiters/Waiters';
 
-import Menu from '../Layouts/Menu/Menu';
+import Menu from '../Layouts/Navigation/Menu';
 
 function Routes() {
   return (

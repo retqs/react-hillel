@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import waiters from './watiersReducer';
-import tables from './tablesReducer';
+import waiters from './watiers/watiersReducer';
+import tables from './tables/tablesReducer';
 
 export default combineReducers({
   waiters,

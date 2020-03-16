@@ -1,4 +1,4 @@
-import * as types from '../actions/actionTypes';
+import * as types from '../../actions/actionTypes';
 
 const initialState = {
   isLoading: true,
@@ -18,7 +18,7 @@ export default function(state = initialState, { type, payload }) {
         ...state,
         waiters: state.waiters.filter(item => item.id !== payload)
       };
-    case types.FETCH_DATA_WAITERS:
+    case types.FETCH_DATA:
       return {
         ...state,
         isLoading: false,

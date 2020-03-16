@@ -1,31 +1,42 @@
 import * as types from './actionTypes';
-import { tableAPI, waitersAPI } from '../../services/api';
+import { api } from '../../services/api';
 
 export const setLoading = () => ({
   type: types.SET_LOADING
 });
 
-export const fetchTables = () => async dispatch => {
-  const data = await tableAPI.get('');
+export const fetchData = type => async dispatch => {
+  const data = await api.get(type);
 
   dispatch(setLoading());
 
   dispatch({
-    type: types.FETCH_DATA_TABLES,
+    type: types.FETCH_DATA,
     payload: data.data
   });
 };
 
-export const fetchWaiters = () => async dispatch => {
-  const data = await waitersAPI.get('');
+// export const fetchTables = () => async dispatch => {
+//   const data = await tableAPI.get('');
 
-  dispatch(setLoading());
+//   dispatch(setLoading());
 
-  dispatch({
-    type: types.FETCH_DATA_WAITERS,
-    payload: data.data
-  });
-};
+//   dispatch({
+//     type: types.FETCH_DATA_TABLES,
+//     payload: data.data
+//   });
+// };
+
+// export const fetchWaiters = () => async dispatch => {
+//   const data = await waitersAPI.get('');
+
+//   dispatch(setLoading());
+
+//   dispatch({
+//     type: types.FETCH_DATA_WAITERS,
+//     payload: data.data
+//   });
+// };
 
 export const addTable = () => {
   const newTable = {
@@ -35,7 +46,7 @@ export const addTable = () => {
     sits: 2
   };
 
-  tableAPI.post('', newTable);
+  api.post('tables', newTable);
 
   return {
     type: types.ADD_TABLE,
@@ -44,7 +55,7 @@ export const addTable = () => {
 };
 
 export const editTable = table => dispatch => {
-  tableAPI.put(table.id, table);
+  api.put(`tables/${table.id}`, table);
 
   dispatch({
     type: types.EDIT_TABLE,
@@ -53,7 +64,7 @@ export const editTable = table => dispatch => {
 };
 
 export const deleteTable = id => dispatch => {
-  tableAPI.delete(id);
+  api.delete(`tables/${id}`);
 
   dispatch({
     type: types.DELETE_TABLE,
@@ -68,7 +79,7 @@ export const addWaiter = () => {
     salary: 0
   };
 
-  waitersAPI.post('', newWaiter);
+  api.post('waiters/', newWaiter);
 
   return {
     type: types.ADD_WAITER,
@@ -77,7 +88,7 @@ export const addWaiter = () => {
 };
 
 export const editWaiter = waiter => dispatch => {
-  waitersAPI.put(waiter.id, waiter);
+  api.put(`waiters/${waiter.id}`, waiter);
 
   dispatch({
     type: types.EDIT_WAITER,
@@ -86,7 +97,7 @@ export const editWaiter = waiter => dispatch => {
 };
 
 export const deleteWaiter = id => dispatch => {
-  waitersAPI.delete(id);
+  api.delete(`waiters/${id}`); //change it to the api.delete(`waiters/${id}`) that's it,you don't need make different axios instances
 
   dispatch({
     type: types.DELETE_WAITER,
